@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${NEXT_PUBLIC_EMAILJS_SERVICE_ID}
+        NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: ${NEXT_PUBLIC_EMAILJS_PUBLIC_KEY}
+        NEXT_PUBLIC_EMAILJS_TEMPLATE_NOTIFY: ${NEXT_PUBLIC_EMAILJS_TEMPLATE_NOTIFY}
+    image: maxwell-training:latest
+    container_name: maxwell-training
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
