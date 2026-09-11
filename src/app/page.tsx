@@ -51,7 +51,7 @@ function IconBoxColumn({ items }: { items: SolutionItem[] }) {
 }
 
 export default function HomePage() {
-  const LEARNING_PLATFORM_URL = "https://maxwelltraining.cm/home";
+  const LEARNING_PLATFORM_URL = "https://learn.maxwelltraining.cm";
   return (
     <>
       <SiteHeader isHome />

@@ -71,7 +71,8 @@ export default function ContactPage() {
                             title="Email us"
                             className="background-dark"
                           >
-                            Email us<span>contact@maxwelltraining.net</span>
+                            Email us
+                            <span>contact@maxwelltechnologiesplc.com</span>
                           </a>
                         </div>
                       </div>

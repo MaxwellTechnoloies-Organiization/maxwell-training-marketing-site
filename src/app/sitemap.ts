@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://maxwelltraining.net";
+const BASE = "https://maxwelltraining.cm";
 
 const PAGES: Array<{ path: string; priority: number }> = [
   { path: "/", priority: 1.0 },

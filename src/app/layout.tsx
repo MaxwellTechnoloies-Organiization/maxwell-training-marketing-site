@@ -12,7 +12,7 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { TopBanner } from "@/components/layout/TopBanner";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maxwelltraining.net"),
+  metadataBase: new URL("https://maxwelltraining.cm"),
   title: {
     default:
       "Maxwell Training — Cyber Security & Software Engineering Training in Douala",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://maxwelltraining.net",
+    url: "https://maxwelltraining.cm",
     siteName: "Maxwell Training",
     title: "Maxwell Training — Learn Tech Skills Faster And More Effectively",
     description:
