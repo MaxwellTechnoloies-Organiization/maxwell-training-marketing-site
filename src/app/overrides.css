@@ -162,62 +162,336 @@
   background-color: #ffffff;
 }
 
-/* ---- Mobile menu panel ---------------------------------------- */
+/* ---- Desktop: the drill-down slide is mobile-only --------------- */
 
 @media (max-width: 991px) {
-  .main-menu.is-active {
-    background-color: #ffffff !important;
-    padding-top: 8px;
+  .menu-overlay {
+    z-index: 9990;
   }
 
-  /* The header's colour scheme must not leak into the panel */
-  .main-menu.is-active,
-  .main-menu.is-active ul li a,
-  .main-menu.is-active .menu-action .item i {
-    color: #111111 !important;
+  .site-header .main-menu {
+    left: 0;
+    right: auto;
+    width: 86%;
+    max-width: 380px;
+    z-index: 9999;
   }
 
-  .main-menu.is-active > ul > li > a {
-    font-size: 26px;
-    font-weight: 600;
-    padding: 14px 24px;
-    border-bottom: 1px solid #eeeeee;
-  }
-
-  .main-menu.is-active > ul > li:last-child > a {
-    border-bottom: 0;
-  }
-
-  .main-menu.is-active .sub-menu li a {
-    font-size: 18px;
-    font-weight: 500;
-    padding: 13px 24px;
-    border-bottom: 1px solid #f4f4f4;
-  }
-
-  .main-menu.is-active .menu-action {
-    padding: 14px 24px;
-    border-bottom: 1px solid #eeeeee;
-    margin-bottom: 6px;
-  }
-
-  .main-menu.is-active li.current-menu-item > a {
-    color: #f7b32b !important;
-    background-color: #fdf6e7;
+  .site-header.menu-is-open {
+    z-index: 99999;
   }
 }
 
 @media (max-width: 991px) {
-  .main-menu > ul[data-depth="1"] {
+  /* ---- Overlay ------------------------------------------------- */
+
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    border: 0;
+    padding: 0;
+    background: rgb(10 10 16 / 0.55);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.35s ease,
+      visibility 0.35s ease;
+  }
+
+  .menu-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* ---- Panel --------------------------------------------------- */
+
+  .main-menu {
+    /* Reset the theme's dark-scheme variables — the homepage header
+       flips them, which would make this panel black. */
+    --sala-primary-dark: #111111;
+    --sala-neutral-dark: #111111;
+    --sala-neutral-normal: #555555;
+    --sala-neutral-medium: #999999;
+    --sala-neutral-white: #ffffff;
+    --sala-shade-background: #f8f9fc;
+    --sala-border-line: #eeeeee;
+    --sala-icon-dark: #111111;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    width: 86%;
+    max-width: 380px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(
+        circle at 0% 0%,
+        rgb(247 179 43 / 0.16) 0%,
+        transparent 38%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        rgb(117 39 235 / 0.12) 0%,
+        transparent 45%
+      );
+
     transform: translateX(-100%);
+    visibility: hidden;
+    box-shadow: 8px 0 40px rgb(17 17 17 / 0.18);
+    transition:
+      transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0.38s;
   }
-}
 
-@media (max-width: 991px) {
-  .main-menu.is-active > ul > li.has-sub-menu > a {
+  .main-menu.is-active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  /* Gradient spine down the left edge */
+  .main-menu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #f7b32b 0%, #ff7a18 45%, #7527eb 100%);
+  }
+
+  /* ---- Header bar ---------------------------------------------- */
+
+  .main-menu .menu-action {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 22px 16px;
+    border-bottom: 1px solid rgb(17 17 17 / 0.07);
+    margin-bottom: 6px;
+  }
+
+  .menu-action__brand {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #b3862a;
+  }
+
+  .main-menu .menu-action .item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgb(17 17 17 / 0.05);
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .main-menu .menu-action .item:active {
+    background-color: #f7b32b;
+    transform: scale(0.92);
+  }
+
+  .main-menu .menu-action .item i {
+    font-size: 19px;
+  }
+
+  /* ---- Top level ----------------------------------------------- */
+
+  .main-menu > ul {
+    flex: 1 1 auto;
+    padding: 0 0 8px;
+  }
+
+  .main-menu > ul > li > a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.3;
+    padding: 14px 22px 14px 26px;
+    transition:
+      color 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+  .main-menu > ul > li > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    border-radius: 0 3px 3px 0;
+    background: linear-gradient(180deg, #f7b32b, #ff7a18);
+    transition: height 0.25s ease;
+  }
+
+  .main-menu > ul > li.current-menu-item > a::before,
+  .main-menu > ul > li.is-open > a::before {
+    height: 22px;
+  }
+
+  .main-menu > ul > li.current-menu-item > a {
+    color: #f7b32b;
+  }
+
+  .main-menu > ul > li:not(:last-child) > a {
+    border-bottom: 1px solid rgb(17 17 17 / 0.05);
+  }
+
+  /* ---- Chevron ------------------------------------------------- */
+
+  .main-menu .toggle-sub-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: rgb(17 17 17 / 0.05);
+    font-size: 12px;
+    color: #777777;
+    flex: 0 0 auto;
+    transition:
+      transform 0.3s ease,
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .main-menu > ul > li.is-open .toggle-sub-menu {
+    transform: rotate(90deg);
+    background-color: #f7b32b;
+    color: #111111;
+  }
+
+  /* ---- Submenu, inline accordion -------------------------------- */
+
+  .main-menu .sub-menu {
+    position: static;
+    width: auto;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    box-shadow: none;
+    background: linear-gradient(
+      180deg,
+      rgb(247 179 43 / 0.07),
+      rgb(247 179 43 / 0)
+    );
+    border-left: 2px solid rgb(247 179 43 / 0.3);
+    margin: 0 0 0 26px;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s ease;
+  }
+
+  .main-menu .sub-menu.open {
+    grid-template-rows: 1fr;
+  }
+
+  .main-menu .sub-menu > li {
+    overflow: hidden;
+  }
+
+  .main-menu .sub-menu li a {
+    position: relative;
+    display: block;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.45;
+    padding: 11px 20px 11px 20px;
+    color: #444444;
+  }
+
+  .main-menu .sub-menu li a::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #d8d8d8;
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .main-menu .sub-menu li.current-menu-item a {
+    color: #f7b32b;
+  }
+
+  .main-menu .sub-menu li.current-menu-item a::before {
+    background-color: #f7b32b;
+    transform: translateY(-50%) scale(1.4);
+  }
+
+  /* ---- Foot ---------------------------------------------------- */
+
+  .menu-foot {
+    padding: 18px 22px 26px;
+    margin-top: auto;
+    border-top: 1px solid rgb(17 17 17 / 0.07);
+    background: linear-gradient(180deg, transparent, rgb(117 39 235 / 0.06));
+  }
+
+  .menu-foot__cta {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 14px;
+  }
+
+  .menu-foot__cta i {
+    color: #f7b32b;
+    font-size: 17px;
+  }
+
+  .menu-foot__enrol {
+    display: block;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(90deg, #f7b32b, #ff7a18);
+    box-shadow: 0 6px 18px rgb(247 179 43 / 0.35);
+  }
+}
+
+/* Overlay and foot are mobile-only */
+@media (min-width: 992px) {
+  .menu-overlay,
+  .menu-foot,
+  .menu-action__brand {
+    display: none;
   }
 }
 
@@ -250,16 +524,6 @@
 .main-menu .sub-menu li.current-menu-item > a {
   color: #f7b32b;
   font-weight: 500;
-}
-
-/* Homepage header sits over a dark hero — amber still reads there,
-   but the underline needs to clear the transparent background */
-.site-header.sala-dark-scheme:not(.on-scroll)
-  .main-menu
-  > ul
-  > li.current-menu-item
-  > a {
-  color: #f7b32b;
 }
 
 /* ---- Scrollbar ------------------------------------------------- */
@@ -315,18 +579,6 @@ html::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(90deg, #f7b32b 0%, #ff7a18 45%, #7527eb 100%);
   box-shadow: 0 0 12px rgb(247 179 43 / 0.6);
   will-change: transform;
-}
-
-/* ---- Top banner ------------------------------------------------ */
-
-:root {
-  --banner-h: 44px;
-}
-
-@media (max-width: 767px) {
-  :root {
-    --banner-h: 40px;
-  }
 }
 
 /* ---- Top banner ------------------------------------------------ */
@@ -518,36 +770,6 @@ html::-webkit-scrollbar-thumb:hover {
 .hero-cta__button:hover i {
   transform: translateX(3px);
 }
-
-.hero-cta__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgb(255 255 255 / 0.35);
-  padding-bottom: 2px;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.hero-cta__link:hover {
-  color: #f7b32b;
-  border-color: #f7b32b;
-}
-
-.hero-cta__link i {
-  font-size: 16px;
-  transition: transform 0.25s ease;
-}
-
-.hero-cta__link:hover i {
-  transform: translateX(3px);
-}
-
 @media (max-width: 575px) {
   .hero-cta {
     flex-direction: column;
