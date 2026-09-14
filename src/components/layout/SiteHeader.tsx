@@ -35,14 +35,13 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
   const onScroll = useStickyHeader();
   const pathname = usePathname();
 
-  const [isActive, setIsActive] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // Reset the canvas menu on navigation, during render rather than in an effect.
   const [lastPathname, setLastPathname] = useState(pathname);
   if (pathname !== lastPathname) {
     setLastPathname(pathname);
-    setIsActive(false);
+    setIsMenuOpen(false);
     setOpenIndex(null);
   }
 
@@ -51,7 +50,7 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
   const depth = openIndex === null ? 0 : 1;
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isMenuOpen) return;
 
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -59,8 +58,8 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
     return () => {
       document.body.style.overflow = previous;
     };
-  }, [isActive]);
-  
+  }, [isMenuOpen]);
+
   return (
     <header
       id="header"
@@ -80,10 +79,10 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
                 <div className="icon">
                   <button
                     type="button"
-                    aria-label={isActive ? "Close menu" : "Open menu"}
-                    aria-expanded={isActive}
+                    aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isMenuOpen}
                     aria-controls="main-menu"
-                    onClick={() => setIsActive(true)}
+                    onClick={() => setIsMenuOpen(true)}
                     className="burger"
                   >
                     <span></span>
@@ -111,7 +110,7 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
             <div className="header-center">
               <div
                 id="main-menu"
-                className={`main-menu${isActive ? " is-active" : ""}`}
+                className={`main-menu${isMenuOpen ? " is-active" : ""}`}
               >
                 <div className="menu-action">
                   <button
@@ -127,7 +126,7 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
                     type="button"
                     className="item menu-close"
                     aria-label="Close menu"
-                    onClick={() => setIsActive(false)}
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     <i className="las la-times" aria-hidden="true" />
                   </button>
@@ -147,7 +146,7 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
                       item.children?.some((child) => child.href === pathname),
                     );
 
-                    const isActive = isCurrent || hasActiveChild;
+                    const isMenuOpen = isCurrent || hasActiveChild;
 
                     return (
                       <li
@@ -155,7 +154,7 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
                         className={[
                           i >= 2 ? "is-normal-menu" : "",
                           hasSub ? "has-sub-menu" : "",
-                          isActive ? "current-menu-item" : "",
+                          isMenuOpen ? "current-menu-item" : "",
                         ]
                           .filter(Boolean)
                           .join(" ")}

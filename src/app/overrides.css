@@ -122,8 +122,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  /* 24px of visible bars, padded out to a 44px touch target, then
-     pulled back with negative margin so the header height is unchanged */
   height: 24px;
   padding: 10px;
   margin: -10px;
