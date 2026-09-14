@@ -6,6 +6,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Web Design Training",
@@ -69,6 +71,16 @@ const modules: TimelineModule[] = [
 export default function WebDesignPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Web Design",
+          description:
+            "Learn to build websites without coding. WordPress, graphic design, SEO and hosting — practical training in Douala, Cameroon.",
+          slug: "webdesign",
+          hours: 350,
+          level: "Advanced",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

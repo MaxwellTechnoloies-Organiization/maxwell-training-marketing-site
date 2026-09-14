@@ -10,6 +10,8 @@ import "./overrides.css";
 import { Toaster } from "@/components/ui/Toaster";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { TopBanner } from "@/components/layout/TopBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organisationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://maxwelltraining.cm"),
@@ -85,6 +87,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/style.css" />
       </head>
       <body>
+        <JsonLd data={organisationSchema}/>
         <ScrollProgress />
         <div id="wrapper">
           <TopBanner />

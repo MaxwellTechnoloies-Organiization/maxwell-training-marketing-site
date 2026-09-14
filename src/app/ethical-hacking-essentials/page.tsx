@@ -6,6 +6,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Ethical Hacking Essentials (EHE)",
@@ -52,6 +54,16 @@ const modules: TimelineModule[] = OUTLINE.map(([time, desc], index) => ({
 export default function EthicalHackingEssentialsPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Ethical Hacking Essentials",
+          description:
+            "Ethical Hacking Essentials which is the entry point into cyber security. 13 modules covering security fundamentals, password cracking and network attacks.",
+          slug: "ethical-hacking-essentials",
+          hours: 38,
+          level: "Intermediate",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

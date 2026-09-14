@@ -16,6 +16,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Certified Incident Handler",
@@ -123,6 +125,16 @@ const modules: TimelineModule[] = [
 export default function CertifiedIncidentHandlerPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Certified Incident Handler",
+          description:
+            "EC-Council Certified Incident Handler training with 9 modules on detecting, containing and recovering from security incidents.",
+          slug: "certified-incident-handler",
+          hours: 36,
+          level: "Intermediate",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

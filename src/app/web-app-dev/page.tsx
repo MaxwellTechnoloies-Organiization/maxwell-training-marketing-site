@@ -6,6 +6,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Fullstack Web Application Development",
@@ -77,6 +79,16 @@ const modules: TimelineModule[] = [
 export default function WebAppDevPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Web Application Development",
+          description:
+            "Fullstack web development training in HTML, CSS, JavaScript, React, Node.js and MongoDB with 7,000+ coding exercises and a paid internship.",
+          slug: "web-app-dev",
+          hours: 300,
+          level: "Advanced",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

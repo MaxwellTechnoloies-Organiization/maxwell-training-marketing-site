@@ -16,6 +16,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Certified Network Defender",
@@ -65,6 +67,16 @@ const modules: TimelineModule[] = SUBJECTS.map((desc, index) => ({
 export default function CertifiedNetworkDefenderPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Certified Network Defender",
+          description:
+            "CND v2 training with 20 modules covering network defence, endpoint security, threat intelligence and incident response.",
+          slug: "certified-network-defender",
+          hours: 20,
+          level: "Intermediate",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

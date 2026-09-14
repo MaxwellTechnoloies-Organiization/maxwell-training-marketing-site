@@ -16,6 +16,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Certified Secure Computer User",
@@ -60,6 +62,16 @@ const modules: TimelineModule[] = OUTLINE.map(
 export default function CertifiedSecureComputerUserPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Certified Secure Computer User",
+          description:
+            "CSCU training for non-IT professionals. Protect against identity theft, phishing, malware and data loss across devices, email and the cloud.",
+          slug: "certified-secure-computer-user",
+          hours: 6,
+          level: "Beginner",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

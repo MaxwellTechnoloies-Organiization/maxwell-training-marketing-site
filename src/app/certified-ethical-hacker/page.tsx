@@ -16,6 +16,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Certified Ethical Hacker",
@@ -190,10 +192,7 @@ const modules: TimelineModule[] = [
     desc: "Learn Mobile platform attack vector, android and iOS hacking, mobile device management, mobile security guidelines, and security tools.",
   },
   {
-    team: [
-      "/assets/images/tools/iot.png",
-      "/assets/images/tools/security.png",
-    ],
+    team: ["/assets/images/tools/iot.png", "/assets/images/tools/security.png"],
     time: "3 Hours Of Praticals",
     title: "IoT Hacking",
     instructors: "IoT Hacking",
@@ -225,6 +224,17 @@ const modules: TimelineModule[] = [
 export default function CertifiedEthicalHackerPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Certified Ethical Hacker (CEH)",
+          description:
+            "CEH v12 training with 19 modules, 220+ hands-on labs and 3,500 hacking tools.",
+          slug: "certified-ethical-hacker",
+          hours: 77,
+          level: "Intermediate",
+        })}
+      />
+      
       <SiteHeader />
 
       <main id="main" className="site-main">

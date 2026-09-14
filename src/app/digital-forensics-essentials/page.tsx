@@ -6,6 +6,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Digital Forensic Essentials",
@@ -47,6 +49,16 @@ const modules: TimelineModule[] = OUTLINE.map(([title, desc], index) => ({
 export default function DigitalForensicsEssentialsPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Digital Forensics Essentials",
+          description:
+            "Digital Forensics Essentials training with 12 modules and 28 live labs covering Windows, Linux, network, malware and dark web forensics.",
+          slug: "digital-forensics-essentials",
+          hours: 12,
+          level: "Beginner",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

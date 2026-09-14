@@ -16,6 +16,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Certified Penetration Testing Professional",
@@ -141,6 +143,16 @@ const modules: TimelineModule[] = [
 export default function CertifiedPenetrationTestingProfessionalPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Certified Testing Professional",
+          description:
+            "CPENT certification training. Learn to pen test IoT and OT systems, write your own exploits and pivot into hidden network segments.",
+          slug: "certified-penetration-testing-professional",
+          hours: 63,
+          level: "Intermediate",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

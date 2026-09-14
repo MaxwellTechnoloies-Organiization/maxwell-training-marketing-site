@@ -8,7 +8,7 @@
 
 const PHONE_DISPLAY = "+237 672 149 730";
 const PHONE_HREF = "tel:+237672149730";
-const EMAIL = "contact@maxwelltraining.cm";
+const EMAIL = "contact@maxwelltechnologiesplc.com";
 
 const SOCIALS = [
   {

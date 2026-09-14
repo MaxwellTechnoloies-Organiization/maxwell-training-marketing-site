@@ -6,6 +6,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Digital Marketing",
@@ -94,6 +96,15 @@ const modules: TimelineModule[] = [
 export default function DigitalMarketingPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Digital Marketing",
+          description:
+            "10-week digital marketing training in SEO, paid advertising, social media, email marketing, analytics and Canva design, taught practically.",
+          slug: "digital-marketing",
+          level: "Intermediate",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

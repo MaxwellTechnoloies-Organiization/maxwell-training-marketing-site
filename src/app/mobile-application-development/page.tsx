@@ -6,6 +6,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Fullstack Mobile Application Development",
@@ -74,6 +76,16 @@ const modules: TimelineModule[] = [
 export default function MobileApplicationDevelopmentPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Mobile Application Development",
+          description:
+            "Build cross-platform apps with Dart, Flutter, Node.js and MongoDB, then work on real client projects.",
+          slug: "mobile-application-development",
+          hours: 410,
+          level: "Advanced",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">

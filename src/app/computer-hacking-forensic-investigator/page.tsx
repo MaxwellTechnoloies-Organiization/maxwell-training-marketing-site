@@ -16,6 +16,8 @@ import {
   CourseTimeline,
   type TimelineModule,
 } from "@/features/courses/components/CourseTimeline";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { courseSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Computer Hacking Forensic Investigator",
@@ -63,6 +65,16 @@ const modules: TimelineModule[] = SUBJECTS.map((desc, index) => ({
 export default function ComputerHackingForensicInvestigatorPage() {
   return (
     <>
+      <JsonLd
+        data={courseSchema({
+          name: "Computer Hacking Forensic Investigator",
+          description:
+            "CHFI v10 digital forensics training. Learn evidence collection, Windows and Linux forensics, malware analysis and dark web investigation.",
+          slug: "computer-hacking-forensic-investigator",
+          hours: 64,
+          level: "Intermediate",
+        })}
+      />
       <SiteHeader />
 
       <main id="main" className="site-main">
@@ -73,9 +85,8 @@ export default function ComputerHackingForensicInvestigatorPage() {
                 <div className="col-lg-6">
                   <div className="heading mb32">
                     <div className="heading-sub layout-02">CHFI</div>
-                    {/* "Computer" is duplicated in the source heading. */}
                     <h1 className="heading-title size-xl">
-                      Computer Computer Hacking Forensic Investigator CHFI
+                      Computer Hacking Forensic Investigator CHFI
                     </h1>
                     <div className="heading-desc">
                       ANSI 17024 accredited Certification Program. When Hackers
