@@ -165,15 +165,19 @@
 /* ---- Mobile menu panel ---------------------------------------- */
 
 @media (max-width: 991px) {
-  .main-menu.is-active {
-    background-color: #ffffff !important;
+  .site-header .main-menu.is-active {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    opacity: 1 !important;
     padding-top: 8px;
   }
 
   /* The header's colour scheme must not leak into the panel */
-  .main-menu.is-active,
-  .main-menu.is-active ul li a,
-  .main-menu.is-active .menu-action .item i {
+  .site-header .main-menu.is-active,
+  .site-header .main-menu.is-active ul li a,
+  .site-header .main-menu.is-active .menu-action .item i {
     color: #111111 !important;
   }
 
