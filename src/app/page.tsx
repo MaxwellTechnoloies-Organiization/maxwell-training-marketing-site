@@ -99,6 +99,8 @@ export default function HomePage() {
                         href={LEARNING_PLATFORM_URL}
                         className="button borderline-white hero-cta__button"
                         title="Continue learning"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Continue Learning
                         <i
