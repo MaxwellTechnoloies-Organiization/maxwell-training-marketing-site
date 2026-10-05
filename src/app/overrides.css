@@ -219,6 +219,35 @@
   }
 }
 
+/* ---- Submenu colour scheme ------------------------------------ */
+
+/* The homepage header carries sala-dark-scheme, which flips the theme's
+   variables: --sala-neutral-white becomes #111111 and --sala-primary-dark
+   becomes #ffffff. The submenu takes its background from the first
+   (style.css: .is-normal-menu .sub-menu) and its link colour from the
+   second (style.css: a), and both resolve inside the panel - so the
+   submenu went dark on the homepage and nowhere else.
+
+   Resetting the variables on the panel itself is enough: everything
+   inside then inherits light-scheme values. A declaration on the element
+   beats the inherited scheme whatever the selector specificity, so this
+   needs no !important and no fight with style.css.
+
+   Scoped to the submenu, not .main-menu: resetting any higher would drag
+   the top-level nav links dark against the hero image. */
+.site-header.sala-dark-scheme .main-menu .sub-menu {
+  --sala-primary-dark: #111111;
+  --sala-neutral-dark: #111111;
+  --sala-neutral-normal: #555555;
+  --sala-neutral-medium: #999999;
+  --sala-neutral-white: #ffffff;
+  --sala-shade-background: #f8f9fc;
+  --sala-shade-background-2: #f4f2fd;
+  --sala-border-line: #eeeeee;
+  --sala-icon-dark: #111111;
+  --sala-boxshadow: 0rem 0rem 1.25rem rgba(30, 34, 40, 0.06);
+}
+
 /* ---- Active nav item ------------------------------------------ */
 
 .main-menu > ul > li.current-menu-item > a {

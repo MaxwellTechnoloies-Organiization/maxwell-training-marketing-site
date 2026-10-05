@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState, type ReactNode } from "react";
+import { useState, type ReactNode } from 'react';
 
 export interface TimelineModule {
-  team: string[];
+  icon: string[];
   time: string;
   title: string;
-  instructors: string;
+  practicalTools: string;
   desc: string;
   initiallyActive?: boolean;
 }
@@ -17,17 +17,11 @@ export interface CourseTimelineProps {
   children?: ReactNode;
 }
 
-export function CourseTimeline({
-  dateLine,
-  modules,
-  children,
-}: CourseTimelineProps) {
+export function CourseTimeline({ dateLine, modules, children }: CourseTimelineProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const isActive = (index: number) =>
-    activeIndex === null
-      ? Boolean(modules[index].initiallyActive)
-      : activeIndex === index;
+    activeIndex === null ? Boolean(modules[index].initiallyActive) : activeIndex === index;
 
   return (
     <section className="section spdt">
@@ -40,8 +34,7 @@ export function CourseTimeline({
           {dateLine.length > 0 && (
             <div className="date-line" role="tablist">
               {dateLine.map((date, index) => {
-                const selected =
-                  activeIndex === null ? index === 0 : activeIndex === index;
+                const selected = activeIndex === null ? index === 0 : activeIndex === index;
 
                 return (
                   <a
@@ -49,7 +42,7 @@ export function CourseTimeline({
                     key={date}
                     role="tab"
                     aria-selected={selected}
-                    className={selected ? "is-active" : undefined}
+                    className={selected ? 'is-active' : undefined}
                     onClick={(event) => {
                       event.preventDefault();
                       setActiveIndex(index);
@@ -64,20 +57,20 @@ export function CourseTimeline({
 
           {modules.map((module, index) => (
             <div
-              className={`item${isActive(index) ? " is-active" : ""}`}
+              className={`item${isActive(index) ? ' is-active' : ''}`}
               key={`${module.title}-${index}`}
             >
               <div className="inner">
-                {module.team.length > 0 && (
+                {module.icon.length > 0 && (
                   <div className="team">
-                    {module.team.map((avatar) => (
+                    {module.icon.map((avatar) => (
                       <img src={avatar} alt="Avatar" key={avatar} />
                     ))}
                   </div>
                 )}
                 <div className="time">{module.time}</div>
                 <h3 className="title">{module.title}</h3>
-                <div className="twitter">{module.instructors}</div>
+                <div className="twitter">{module.practicalTools}</div>
                 <div className="desc">{module.desc}</div>
               </div>
             </div>

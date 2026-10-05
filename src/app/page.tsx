@@ -1,31 +1,19 @@
-/**
- * Homepage.
- *
- * Seven sections: hero, Our Solution, Trainings & Certifications, free
- * trial banner, testimonials, certifications marquee, closing CTA.
- *
- * Uses <SiteHeader isHome /> for the dark scheme, since the header sits
- * over a dark hero photograph.
- *
- * @author Awa Precious
- */
-
-import type { Metadata } from "next";
-import Link from "next/link";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Reveal } from "@/components/ui/Reveal";
-import { InfiniteMarquee } from "@/features/marketing/components/InfiniteMarquee";
-import { TestimonialSlider } from "@/features/testimonials/components/TestimonialSlider";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { Reveal } from '@/components/ui/Reveal';
+import { InfiniteMarquee } from '@/features/marketing/components/InfiniteMarquee';
+import { TestimonialSlider } from '@/features/testimonials/components/TestimonialSlider';
 import {
   solutionsLeft,
   solutionsRight,
   certificationsRowOne,
   certificationsRowTwo,
   type SolutionItem,
-} from "@/features/marketing/data/home";
+} from '@/features/marketing/data/home';
 
 export const metadata: Metadata = {
-  title: "Maxwell Training | Home",
+  title: 'Maxwell Training | Home',
 };
 
 function IconBoxColumn({ items }: { items: SolutionItem[] }) {
@@ -51,7 +39,7 @@ function IconBoxColumn({ items }: { items: SolutionItem[] }) {
 }
 
 export default function HomePage() {
-  const LEARNING_PLATFORM_URL = "https://learn.maxwelltraining.cm";
+  const LEARNING_PLATFORM_URL = 'https://learn.maxwelltraining.cm';
   return (
     <>
       <SiteHeader isHome />
@@ -61,35 +49,24 @@ export default function HomePage() {
           <section
             className="section background-overlay background-full pdt180 oveflow-hidden"
             style={{
-              backgroundImage: "url(/assets/images/maxwell-training-bg.jpg)",
+              backgroundImage: 'url(/assets/images/maxwell-training-bg.jpg)',
             }}
           >
             <div className="container">
               <div className="row">
                 <div className="col-lg-6">
-                  <Reveal
-                    animation="animate__fadeInLeft"
-                    className="heading heading-alway-white"
-                  >
+                  <Reveal animation="animate__fadeInLeft" className="heading heading-alway-white">
                     <div className="heading-sub">Welcome</div>
                     <h1 className="heading-title size-xl">
                       Learn Tech Skills Faster <br /> And More Effectively
                     </h1>
                     <div className="heading-desc">
-                      Maxwell Training has as mission to provide training
-                      adapted to market needs by putting learners on the job as
-                      they learn{" "}
+                      Maxwell Training has as mission to provide training adapted to market needs by
+                      putting learners on the job as they learn{' '}
                     </div>
                   </Reveal>
-                  <Reveal
-                    animation="animate__fadeInLeft"
-                    className="hero-cta mt32"
-                  >
-                    <Link
-                      href="/contact"
-                      className="button fullfield"
-                      title="Enrol now"
-                    >
+                  <Reveal animation="animate__fadeInLeft" className="hero-cta mt32">
+                    <Link href="/contact" className="button fullfield" title="Enrol now">
                       Enrol Now
                     </Link>
 
@@ -103,10 +80,7 @@ export default function HomePage() {
                         rel="noopener noreferrer"
                       >
                         Continue Learning
-                        <i
-                          className="las la-long-arrow-alt-right"
-                          aria-hidden="true"
-                        />
+                        <i className="las la-long-arrow-alt-right" aria-hidden="true" />
                       </a>
                     </span>
                   </Reveal>
@@ -149,11 +123,7 @@ export default function HomePage() {
                 <div className="col-lg-6">
                   <div className="images layout-02 lg-mt60 lg-mb60">
                     <div className="inner">
-                      <img
-                        className="img01"
-                        src="/assets/images/asc3.png"
-                        alt="Image"
-                      />
+                      <img className="img01" src="/assets/images/asc3.png" alt="Image" />
                       <Reveal
                         as="img"
                         animation="animate__fadeInLeft"
@@ -168,11 +138,7 @@ export default function HomePage() {
                         src="/assets/images/asc5.png"
                         alt="Image"
                       />
-                      <img
-                        className="img04 lg-hidden"
-                        src="/assets/images/asc6.png"
-                        alt="Image"
-                      />
+                      <img className="img04 lg-hidden" src="/assets/images/asc6.png" alt="Image" />
                     </div>
                   </div>
                 </div>
@@ -186,12 +152,8 @@ export default function HomePage() {
           <section className="section pt120 spdb" id="somecertifications">
             <div className="container">
               <div className="heading align-center">
-                <div className="heading-sub color-navy">
-                  TRAININGS &amp; CERTIFICATIONS
-                </div>
-                <h2 className="heading-title size-l">
-                  WE TRAIN IN 3 DIFFERENT DOMAINS
-                </h2>
+                <div className="heading-sub color-navy">TRAININGS &amp; CERTIFICATIONS</div>
+                <h2 className="heading-title size-l">WE TRAIN IN 3 DIFFERENT DOMAINS</h2>
               </div>
               <div className="block-icon-box align-center">
                 <div className="row flex-align-c">
@@ -225,13 +187,13 @@ export default function HomePage() {
                         <div className="content">
                           <h3 className="title">Software Engineering</h3>
                           <div className="desc">
-                            Learn Programming in the most practical way and Work
-                            on paid internships on large-scale projects
+                            Learn Programming in the most practical way and Work on paid internships
+                            on large-scale projects
                           </div>
                         </div>
                         <div className="button-wrap mt32">
                           <Link
-                            href="/web-application-development"
+                            href="/frontend-web-development"
                             className="button fullfield xs-mb10"
                             title="Try it free"
                           >
@@ -248,13 +210,12 @@ export default function HomePage() {
                         <div className="content">
                           <h3 className="title"> Digital Marketing </h3>
                           <div className="desc">
-                            Master how to grow and scale any business on the
-                            digital space
+                            Master how to grow and scale any business on the digital space
                           </div>
                         </div>
                         <div className="button-wrap mt32">
                           <Link
-                            href="/digital-marketing"
+                            href="/fundamentals-and-strategy"
                             className="button fullfield xs-mb10"
                             title="Try it free"
                           >
@@ -274,23 +235,17 @@ export default function HomePage() {
               <div className="inner br10">
                 <div className="row g-0">
                   <div className="col-lg-6">
-                    <img
-                      src="/assets/images/maxwell-training-trial.png"
-                      alt="Banner"
-                    />
+                    <img src="/assets/images/maxwell-training-trial.png" alt="Banner" />
                   </div>
                   <div className="col-lg-6">
                     <div className="content">
                       <div className="heading heading-alway-white mb24">
-                        <h2 className="heading-title size-l">
-                          GET A FREE TRIAL
-                        </h2>
+                        <h2 className="heading-title size-l">GET A FREE TRIAL</h2>
                         <div className="heading-desc">
-                          Don&rsquo;t just take our word for it. Try our
-                          training by taking a few lessons for free. We&rsquo;d
-                          set up your account on our platform and one of our
-                          instructors will start working with you right away!
-                          This can be virtual as well as physical.
+                          Don&rsquo;t just take our word for it. Try our training by taking a few
+                          lessons for free. We&rsquo;d set up your account on our platform and one
+                          of our instructors will start working with you right away! This can be
+                          virtual as well as physical.
                         </div>
                       </div>
                       <ul>
@@ -310,10 +265,7 @@ export default function HomePage() {
                           title="Book a Free Trial"
                         >
                           Book a Free Trial
-                          <i
-                            className="las la-long-arrow-alt-right"
-                            aria-hidden="true"
-                          />
+                          <i className="las la-long-arrow-alt-right" aria-hidden="true" />
                         </Link>
                       </div>
                     </div>
@@ -327,23 +279,16 @@ export default function HomePage() {
 
           <section className="section spdt" id="partners">
             <div className="heading align-center">
-              <h2 className="heading-title w500 size-l">
-                Certifications on Offer
-              </h2>
+              <h2 className="heading-title w500 size-l">Certifications on Offer</h2>
             </div>
             <InfiniteMarquee items={certificationsRowOne} />
-            <InfiniteMarquee
-              items={certificationsRowTwo}
-              reverse
-              className="mt20"
-            />
+            <InfiniteMarquee items={certificationsRowTwo} reverse className="mt20" />
           </section>
 
           <section
             className="section background-full layout-12 opt160 opb200"
             style={{
-              backgroundImage:
-                "url(/assets/images/maxwell-training-get-started.jpg)",
+              backgroundImage: 'url(/assets/images/maxwell-training-get-started.jpg)',
             }}
           >
             <div className="container">
@@ -356,18 +301,13 @@ export default function HomePage() {
                   Maxwell Training
                 </h2>
                 <div className="heading-desc">
-                  Join us to day and get access to up to 10,000 exercises, work
-                  experience, and
+                  Join us to day and get access to up to 10,000 exercises, work experience, and
                   <br />
                   for the best of you, a full-time employment offer
                 </div>
               </div>
               <div className="button-wrap">
-                <Link
-                  href="/contact"
-                  className="button borderline-white"
-                  title="Start Learning"
-                >
+                <Link href="/contact" className="button borderline-white" title="Start Learning">
                   <svg
                     className="las la-play-circle icon-before"
                     width="50px"

@@ -5,25 +5,18 @@ import { Reveal } from '@/components/ui/Reveal';
 import { CourseTimeline, type TimelineModule } from '@/features/courses/components/CourseTimeline';
 
 export const metadata: Metadata = {
-  title: 'Fullstack Mobile Application Development',
+  title: 'Mobile Frontend Development',
   description:
-    'Mobile app development training in Douala. Build cross-platform apps with Dart, Flutter, Node.js and MongoDB, then work on real client projects.',
+    'Mobile app development training in Douala. Build cross-platform Android and iOS apps with Dart and Flutter, then work on real client projects.',
 };
 
 const modules: TimelineModule[] = [
-  {
-    icon: ['/assets/images/tools/javascript.png', '/assets/images/tools/typescript.png'],
-    time: '80 Hours Practicals',
-    title: 'JavaScipt',
-    practicalTools: 'Javascript',
-    desc: 'JavaScript is the most popular programming language in the world, and is mastered by virtually every web developer worldwide. This course exposes you to an in-depth study of the language with over 4,000 coding exercises. We also introduce students to EcmaScript 6, one of the latest variants of JavaScript, to permit them program using the latest standards of the language.',
-  },
   {
     icon: ['/assets/images/tools/dart.png', '/assets/images/tools/code.png'],
     time: '120 Hours of Practicals',
     title: 'Dart',
     practicalTools: 'Dart',
-    desc: 'This course introduces and expands into Dart, the programming language developed by Google. With Dart, you would find building mobile, web and desktop applications seamless with Dart. Prior knowledge of programming isn\u2019t necessary, but you shall find it much easier if you are familiar with any object oriented programming language.',
+    desc: 'This course introduces and expands into Dart, the programming language developed by Google that powers Flutter. With Dart, building mobile, web and desktop applications becomes seamless. Prior programming knowledge isn’t necessary, but you will find it easier if you are already familiar with an object-oriented language.',
     initiallyActive: true,
   },
   {
@@ -31,32 +24,11 @@ const modules: TimelineModule[] = [
     time: '120 Hours of Practicals',
     title: 'Flutter',
     practicalTools: 'Flutter',
-    desc: 'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows. Unlike Dart, Flutter is not a programming language, but rather a software development kit.',
-  },
-  {
-    icon: ['/assets/images/tools/nodejs.png', '/assets/images/tools/express.png'],
-    time: '10 Hours of Practicals',
-    title: 'Node Js',
-    practicalTools: 'NodeJs',
-    desc: 'Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser.',
-  },
-  {
-    icon: ['/assets/images/tools/postgres.png', '/assets/images/tools/mysql.png'],
-    time: '40 Hours of Practicals',
-    title: 'PostgreSQL',
-    practicalTools: 'PostgreSQL',
-    desc: 'For introduction into data administration, PostgreSQL is a free and open-source relational database with over 35 years of active development. It uses SQL, enforces schemas and constraints on your data, and supports JSON columns when you need flexibility.',
-  },
-  {
-    icon: ['/assets/images/tools/rest.png', '/assets/images/tools/http.png'],
-    time: '40 Hours of Practicals',
-    title: 'RESTful API',
-    practicalTools: 'RESTful API',
-    desc: 'RESTful API is an interface that two computer systems use to exchange information securely over the internet. Most business applications have to communicate with other internal and third-party applications to perform various tasks. This course would help you link up your mobile application front-end with a back-end database server, and allow you leverage third-party APIs like PayPal, Coinbase, Facebook login, and a host of others.',
+    desc: 'Flutter is Google’s open-source UI toolkit for building apps for Android, iOS, the web, Windows, macOS and Linux from a single codebase. Unlike Dart, Flutter is not a programming language but a software development kit written in Dart. You will build interfaces with widgets, manage state, handle navigation and connect your apps to backend APIs.',
   },
 ];
 
-export default function MobileApplicationDevelopmentPage() {
+export default function MobileFrontendDevelopmentPage() {
   return (
     <>
       <SiteHeader />
@@ -69,48 +41,52 @@ export default function MobileApplicationDevelopmentPage() {
                 <div className="col-lg-6">
                   <div className="heading mb32">
                     <div className="heading-sub layout-02">Software Engineering</div>
-                    <h1 className="heading-title size-xl">Mobile Application Development</h1>
+                    <h1 className="heading-title size-xl">Mobile Frontend Development</h1>
                     <div className="heading-desc">
-                      Build robust, large-scale mobile applications using front end and back end
-                      technologies
+                      Build beautiful, high-performance apps for Android and iOS from a single
+                      Flutter codebase
                     </div>
                   </div>
                   <div className="button-wrap">
-                    <Link href="/contact" className="button fullfield" title="Talk to an Expert">
+                    <Link
+                      href="/contact"
+                      className="button fullfield"
+                      title="Enrol for this Course"
+                    >
                       Enrol for this Course
                     </Link>
                   </div>
-                  <p className="h3 color-dark w500 mt32">Phone. +237 672 149 730</p>
+                  <p className="h3 color-dark w500 mt32">Phone: +237 672 149 730</p>
                 </div>
 
                 <div className="col-lg-6">
                   <div className="images opt200 layout-11">
-                    <img className="img01" src="/assets/images/hc-01.png" alt="Image" />
+                    <img className="img01" src="/assets/images/hc-01.png" alt="" />
                     <Reveal
                       as="img"
                       animation="animate__fadeInLeft"
                       className="img02"
                       src="/assets/images/hc-02.png"
-                      alt="Image"
+                      alt=""
                     />
                     <img
                       className="img03 animate__jump"
                       src="/assets/images/mobile-banner.png"
-                      alt="Image"
+                      alt=""
                     />
                     <Reveal
                       as="img"
                       animation="animate__fadeInRight"
                       className="img04"
                       src="/assets/images/hc-04.png"
-                      alt="Image"
+                      alt=""
                     />
                     <Reveal
                       as="img"
                       animation="animate__fadeInRight"
                       className="img05"
                       src="/assets/images/hc-05.png"
-                      alt="Image"
+                      alt=""
                     />
                   </div>
                 </div>

@@ -1,68 +1,65 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { Reveal } from "@/components/ui/Reveal";
-import {
-  CourseTimeline,
-  type TimelineModule,
-} from "@/features/courses/components/CourseTimeline";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { Reveal } from '@/components/ui/Reveal';
+import { CourseTimeline, type TimelineModule } from '@/features/courses/components/CourseTimeline';
 
 export const metadata: Metadata = {
-  title: "Web Design Training",
+  title: 'Web Design Training',
   description:
-    "Learn to build websites without coding. WordPress, graphic design, SEO and hosting — practical training in Douala, Cameroon.",
+    'Learn to build websites without coding. WordPress, graphic design, SEO and hosting — practical training in Douala, Cameroon.',
 };
 
 const modules: TimelineModule[] = [
   {
-    team: ["/assets/images/tools/webdesign.png"],
-    time: "20 Hours of Practicals",
-    title: "Principles of Beautiful Designs",
-    instructors: "Principles of Beautiful Designs",
-    desc: "",
+    icon: ['/assets/images/tools/webdesign.png'],
+    time: '20 Hours of Practicals',
+    title: 'Principles of Beautiful Designs',
+    practicalTools: 'Principles of Beautiful Designs',
+    desc: '',
     initiallyActive: true,
   },
   {
-    team: ["/assets/images/tools/graphicdesign.png"],
-    time: "120 Hours of Practicals",
-    title: "Graphic Design for Web",
-    instructors: "Graphic Design for Web",
-    desc: "",
+    icon: ['/assets/images/tools/graphicdesign.png'],
+    time: '120 Hours of Practicals',
+    title: 'Graphic Design for Web',
+    practicalTools: 'Graphic Design for Web',
+    desc: '',
   },
   {
-    team: ["/assets/images/tools/wordpress.png"],
-    time: "80 Hours Practicals",
-    title: "Content Management Systems Wordpress",
-    instructors: "Content Management Systems Wordpress",
-    desc: "",
+    icon: ['/assets/images/tools/wordpress.png'],
+    time: '80 Hours Practicals',
+    title: 'Content Management Systems Wordpress',
+    practicalTools: 'Content Management Systems Wordpress',
+    desc: '',
   },
   {
-    team: ["/assets/images/tools/seo.png"],
-    time: "10 Hours of Practicals",
-    title: "Web Design and SEO",
-    instructors: "Web Design and SEO",
-    desc: "",
+    icon: ['/assets/images/tools/seo.png'],
+    time: '10 Hours of Practicals',
+    title: 'Web Design and SEO',
+    practicalTools: 'Web Design and SEO',
+    desc: '',
   },
   {
-    team: ["/assets/images/tools/emailmarketing.png"],
-    time: "40 Hours Practicals",
-    title: "Web Design and Email Marketing",
-    instructors: "Web Design and Email Marketing",
-    desc: "",
+    icon: ['/assets/images/tools/emailmarketing.png'],
+    time: '40 Hours Practicals',
+    title: 'Web Design and Email Marketing',
+    practicalTools: 'Web Design and Email Marketing',
+    desc: '',
   },
   {
-    team: ["/assets/images/tools/socialmedia.png"],
-    time: "40 Hours of Practicals",
-    title: "Web Design and Social Media Marketing",
-    instructors: "Web Design and Social Media Marketing",
-    desc: "",
+    icon: ['/assets/images/tools/socialmedia.png'],
+    time: '40 Hours of Practicals',
+    title: 'Web Design and Social Media Marketing',
+    practicalTools: 'Web Design and Social Media Marketing',
+    desc: '',
   },
   {
-    team: ["/assets/images/tools/hosting.png"],
-    time: "40 Hours of Practicals",
-    title: "Hosting and Deployment",
-    instructors: "Hosting and Deployment",
-    desc: "",
+    icon: ['/assets/images/tools/hosting.png'],
+    time: '40 Hours of Practicals',
+    title: 'Hosting and Deployment',
+    practicalTools: 'Hosting and Deployment',
+    desc: '',
   },
 ];
 
@@ -78,36 +75,23 @@ export default function WebDesignPage() {
               <div className="row flex-align-c">
                 <div className="col-lg-6">
                   <div className="heading mb32">
-                    <div className="heading-sub layout-02">
-                      Software Engineering
-                    </div>
+                    <div className="heading-sub layout-02">Software Engineering</div>
                     <h1 className="heading-title size-xl">Web Design</h1>
                     <div className="heading-desc">
-                      Blend your creativity with IT to produce user friendly
-                      websites without coding
+                      Blend your creativity with IT to produce user friendly websites without coding
                     </div>
                   </div>
                   <div className="button-wrap">
-                    <Link
-                      href="/contact"
-                      className="button fullfield"
-                      title="Talk to an Expert"
-                    >
+                    <Link href="/contact" className="button fullfield" title="Talk to an Expert">
                       Enrol for this Course
                     </Link>
                   </div>
-                  <p className="h3 color-dark w500 mt32">
-                    Phone. +237 672 149 730
-                  </p>
+                  <p className="h3 color-dark w500 mt32">Phone. +237 672 149 730</p>
                 </div>
 
                 <div className="col-lg-6">
                   <div className="images opt200 layout-11">
-                    <img
-                      className="img01"
-                      src="/assets/images/hc-01.png"
-                      alt="Image"
-                    />
+                    <img className="img01" src="/assets/images/hc-01.png" alt="Image" />
                     <Reveal
                       as="img"
                       animation="animate__fadeInLeft"
@@ -150,9 +134,8 @@ export default function WebDesignPage() {
                   <div className="pdr80 lg-mt15">
                     <div className="heading mb24">
                       <div className="heading-desc">
-                        The Web Design training is a course designed to bring IT
-                        skills closer to everyone who would love to build
-                        websites in IT.
+                        The Web Design training is a course designed to bring IT skills closer to
+                        everyone who would love to build websites in IT.
                       </div>
                     </div>
                   </div>
@@ -162,9 +145,8 @@ export default function WebDesignPage() {
                   <div className="pdr80 lg-mt15">
                     <div className="heading mb24">
                       <div className="heading-desc">
-                        The course is designed to welcome learners from every
-                        field regardless of whether or not they know prior
-                        knowledge in IT.
+                        The course is designed to welcome learners from every field regardless of
+                        whether or not they know prior knowledge in IT.
                       </div>
                     </div>
                   </div>
@@ -174,10 +156,8 @@ export default function WebDesignPage() {
                   <div className="pdr80 lg-mt15">
                     <div className="heading mb24">
                       <div className="heading-desc">
-                        At the end, trainees will be able to build
-                        personal/portfolio websites, business websites,
-                        blog/news/magazine websites and even e-commerce
-                        websites.
+                        At the end, trainees will be able to build personal/portfolio websites,
+                        business websites, blog/news/magazine websites and even e-commerce websites.
                       </div>
                     </div>
                   </div>
@@ -187,9 +167,8 @@ export default function WebDesignPage() {
                   <div className="pdr80 lg-mt15">
                     <div className="heading mb24">
                       <div className="heading-desc">
-                        Our training comes with tons of exercises and practical
-                        work on real projects to have you master what
-                        you&rsquo;re learning
+                        Our training comes with tons of exercises and practical work on real
+                        projects to have you master what you&rsquo;re learning
                       </div>
                     </div>
                   </div>
@@ -198,16 +177,9 @@ export default function WebDesignPage() {
             </div>
           </section>
 
-          <CourseTimeline
-            dateLine={["5th July", "6th July", "7th July"]}
-            modules={modules}
-          >
+          <CourseTimeline dateLine={['5th July', '6th July', '7th July']} modules={modules}>
             <div className="button-wrap mt32">
-              <Link
-                href="/contact"
-                className="button fullfield"
-                title="More Details"
-              >
+              <Link href="/contact" className="button fullfield" title="More Details">
                 More Details
               </Link>
             </div>

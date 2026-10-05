@@ -5,58 +5,54 @@ import { Reveal } from '@/components/ui/Reveal';
 import { CourseTimeline, type TimelineModule } from '@/features/courses/components/CourseTimeline';
 
 export const metadata: Metadata = {
-  title: 'Fullstack Mobile Application Development',
+  title: 'Backend Web Development',
   description:
-    'Mobile app development training in Douala. Build cross-platform apps with Dart, Flutter, Node.js and MongoDB, then work on real client projects.',
+    'Backend web development training in Douala. Node.js, Express, REST APIs, PostgreSQL, authentication and deployment, taught one-on-one in a real working environment.',
 };
 
 const modules: TimelineModule[] = [
   {
-    icon: ['/assets/images/tools/javascript.png', '/assets/images/tools/typescript.png'],
-    time: '80 Hours Practicals',
-    title: 'JavaScipt',
-    practicalTools: 'Javascript',
-    desc: 'JavaScript is the most popular programming language in the world, and is mastered by virtually every web developer worldwide. This course exposes you to an in-depth study of the language with over 4,000 coding exercises. We also introduce students to EcmaScript 6, one of the latest variants of JavaScript, to permit them program using the latest standards of the language.',
-  },
-  {
-    icon: ['/assets/images/tools/dart.png', '/assets/images/tools/code.png'],
-    time: '120 Hours of Practicals',
-    title: 'Dart',
-    practicalTools: 'Dart',
-    desc: 'This course introduces and expands into Dart, the programming language developed by Google. With Dart, you would find building mobile, web and desktop applications seamless with Dart. Prior knowledge of programming isn\u2019t necessary, but you shall find it much easier if you are familiar with any object oriented programming language.',
+    icon: ['/assets/images/tools/nodejs.png', '/assets/images/tools/express.png'],
+    time: '10 Hours of Practicals',
+    title: 'Node.js',
+    practicalTools: 'Node.js, npm',
+    desc: 'Node.js lets you run JavaScript on the server, so you can build your backend with the same language you use in the browser. You will set up Node.js projects, manage packages with npm and build your first web server with Express.',
     initiallyActive: true,
   },
   {
-    icon: ['/assets/images/tools/flutter.png', '/assets/images/tools/cross-platform.png'],
-    time: '120 Hours of Practicals',
-    title: 'Flutter',
-    practicalTools: 'Flutter',
-    desc: 'Flutter is an open-source UI software development kit created by Google. It is used to develop cross platform applications from a single codebase for any web browser, Fuchsia, Android, iOS, Linux, macOS, and Windows. Unlike Dart, Flutter is not a programming language, but rather a software development kit.',
-  },
-  {
-    icon: ['/assets/images/tools/nodejs.png', '/assets/images/tools/express.png'],
-    time: '10 Hours of Practicals',
-    title: 'Node Js',
-    practicalTools: 'NodeJs',
-    desc: 'Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser.',
+    // Hours are a suggestion: confirm with the trainer
+    icon: ['/assets/images/tools/express.png', '/assets/images/tools/nodejs.png'],
+    time: '30 Hours of Practicals',
+    title: 'REST APIs with Express',
+    practicalTools: 'Express, Postman',
+    desc: 'Design and build REST APIs with routes, controllers, input validation and proper error handling, and test every endpoint with Postman so your web and mobile apps can rely on them.',
   },
   {
     icon: ['/assets/images/tools/postgres.png', '/assets/images/tools/mysql.png'],
     time: '40 Hours of Practicals',
     title: 'PostgreSQL',
     practicalTools: 'PostgreSQL',
-    desc: 'For introduction into data administration, PostgreSQL is a free and open-source relational database with over 35 years of active development. It uses SQL, enforces schemas and constraints on your data, and supports JSON columns when you need flexibility.',
+    desc: 'PostgreSQL is a free and open-source relational database with over 35 years of active development. You will design tables and relationships, write SQL queries, enforce schemas and constraints on your data, use JSON columns when you need flexibility and connect the database to your Node.js API.',
   },
   {
-    icon: ['/assets/images/tools/rest.png', '/assets/images/tools/http.png'],
-    time: '40 Hours of Practicals',
-    title: 'RESTful API',
-    practicalTools: 'RESTful API',
-    desc: 'RESTful API is an interface that two computer systems use to exchange information securely over the internet. Most business applications have to communicate with other internal and third-party applications to perform various tasks. This course would help you link up your mobile application front-end with a back-end database server, and allow you leverage third-party APIs like PayPal, Coinbase, Facebook login, and a host of others.',
+    // Hours are a suggestion: confirm with the trainer
+    icon: ['/assets/images/tools/nodejs.png', '/assets/images/tools/express.png'],
+    time: '20 Hours of Practicals',
+    title: 'Authentication & Security',
+    practicalTools: 'JWT, bcrypt',
+    desc: 'Add sign-up, login and role-based access to your applications with JSON Web Tokens, store passwords safely with bcrypt and protect your API against the most common web attacks.',
+  },
+  {
+    // Hours are a suggestion: confirm with the trainer
+    icon: ['/assets/images/tools/nodejs.png', '/assets/images/tools/postgres.png'],
+    time: '10 Hours of Practicals',
+    title: 'Deployment',
+    practicalTools: 'Git/GitHub, Docker',
+    desc: 'Put your application online: manage environment variables, package your API with Docker and deploy it with its database to the cloud, ready for real users.',
   },
 ];
 
-export default function MobileApplicationDevelopmentPage() {
+export default function BackendWebDevPage() {
   return (
     <>
       <SiteHeader />
@@ -69,48 +65,51 @@ export default function MobileApplicationDevelopmentPage() {
                 <div className="col-lg-6">
                   <div className="heading mb32">
                     <div className="heading-sub layout-02">Software Engineering</div>
-                    <h1 className="heading-title size-xl">Mobile Application Development</h1>
+                    <h1 className="heading-title size-xl">Backend Web Development</h1>
                     <div className="heading-desc">
-                      Build robust, large-scale mobile applications using front end and back end
-                      technologies
+                      Build the servers, APIs and databases that power large-scale web applications
                     </div>
                   </div>
                   <div className="button-wrap">
-                    <Link href="/contact" className="button fullfield" title="Talk to an Expert">
+                    <Link
+                      href="/contact"
+                      className="button fullfield"
+                      title="Enrol for this Course"
+                    >
                       Enrol for this Course
                     </Link>
                   </div>
-                  <p className="h3 color-dark w500 mt32">Phone. +237 672 149 730</p>
+                  <p className="h3 color-dark w500 mt32">Phone: +237 672 149 730</p>
                 </div>
 
                 <div className="col-lg-6">
                   <div className="images opt200 layout-11">
-                    <img className="img01" src="/assets/images/hc-01.png" alt="Image" />
+                    <img className="img01" src="/assets/images/hc-01.png" alt="" />
                     <Reveal
                       as="img"
                       animation="animate__fadeInLeft"
                       className="img02"
                       src="/assets/images/hc-02.png"
-                      alt="Image"
+                      alt=""
                     />
                     <img
                       className="img03 animate__jump"
-                      src="/assets/images/mobile-banner.png"
-                      alt="Image"
+                      src="/assets/images/web-banner.png"
+                      alt=""
                     />
                     <Reveal
                       as="img"
                       animation="animate__fadeInRight"
                       className="img04"
                       src="/assets/images/hc-04.png"
-                      alt="Image"
+                      alt=""
                     />
                     <Reveal
                       as="img"
                       animation="animate__fadeInRight"
                       className="img05"
                       src="/assets/images/hc-05.png"
-                      alt="Image"
+                      alt=""
                     />
                   </div>
                 </div>
@@ -130,11 +129,20 @@ export default function MobileApplicationDevelopmentPage() {
                       <div className="heading-desc">
                         Maxwell Engineering&rsquo;s software engineering training program is created
                         with a mission to raise world class coders developing software and apps
-                        worthy of competing anywhere in the world. We&rsquo;ve already been able to
-                        train over a dozen coders who&rsquo;ve executed projects for some of the
-                        biggest brands in the country, including SONARA, UBA Cameroon, Access Bank
-                        Cameroon, Media Plus, SCR Maya &amp; Cie, CHOCOCAM TIGER BRANDS among
-                        others.
+                        worthy of competing anywhere in the world.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-6 lg-order-2">
+                  <div className="pdr80 lg-mt15">
+                    <div className="heading mb24">
+                      <div className="heading-desc">
+                        We&rsquo;ve already been able to train over 30 coders who&rsquo;ve executed
+                        projects for some of the biggest brands in the country, including SONARA,
+                        UBA Cameroon, Access Bank Cameroon, Media Plus, SCR Maya &amp; Cie, CHOCOCAM
+                        TIGER BRANDS among others.
                       </div>
                     </div>
                   </div>
