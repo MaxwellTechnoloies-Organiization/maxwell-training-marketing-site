@@ -219,6 +219,257 @@
   }
 }
 
+/* ---- Menu drawer ---------------------------------------------- */
+/* The theme menu is a full-screen takeover (position: fixed, inset 0).
+   Narrow it to a drawer that slides in from the left corner and leave
+   the rest of the screen showing the page behind a backdrop, which the
+   X button or a tap on that backdrop dismisses.
+
+   The .site-header prefix is deliberate: style.css loads after this
+   file (layout.tsx) and its .site-header .main-menu rules are (0,2,0),
+   so a bare .main-menu would lose on a tie. */
+
+@media (max-width: 991px) {
+  .site-header .main-menu {
+    width: min(86vw, 360px);
+    right: auto;
+    border-radius: 0 22px 22px 0;
+    box-shadow: 16px 0 44px rgb(17 17 17 / 0.16);
+    /* Clips the submenu while it sits off-panel at left: 100%, so it
+       slides in from the drawer edge instead of over the backdrop.
+       Vertical stays scrollable so a long submenu is always reachable. */
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* ---- Decoration ---------------------------------------------- */
+  /* Four background layers, same amber -> orange -> purple ramp as the
+     top banner and the scroll progress bar. Backgrounds on a scroll
+     container are pinned to its border box, so these stay put while the
+     menu scrolls - a pseudo-element would slide away with the content. */
+  .site-header .main-menu.is-active {
+    background-image:
+      /* accent strip across the top */
+      linear-gradient(90deg, #f7b32b 0%, #ff7a18 45%, #7527eb 100%),
+      /* rail down the drawer edge */
+      linear-gradient(180deg, #f7b32b 0%, #ff7a18 50%, #7527eb 100%),
+      /* amber wash, top corner */
+      radial-gradient(
+        circle at 100% 0%,
+        rgb(247 179 43 / 0.16) 0%,
+        transparent 46%
+      ),
+      /* purple wash, opposite corner */
+      radial-gradient(
+        circle at 0% 100%,
+        rgb(117 39 235 / 0.1) 0%,
+        transparent 52%
+      );
+    background-repeat: no-repeat;
+    background-size:
+      100% 3px,
+      2px 100%,
+      100% 100%,
+      100% 100%;
+    background-position:
+      top left,
+      top right,
+      top right,
+      bottom left;
+  }
+
+  /* ---- Back / close bar ---------------------------------------- */
+  /* Sticky so the X stays reachable once the panel scrolls */
+  .site-header .main-menu.is-active .menu-action {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    margin-bottom: 4px;
+    border-bottom: 0;
+    background-color: rgb(255 255 255 / 0.82);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Gradient hairline instead of the flat grey border */
+  .site-header .main-menu.is-active .menu-action::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgb(247 179 43 / 0.6) 0%,
+      rgb(117 39 235 / 0.35) 55%,
+      transparent 100%
+    );
+  }
+
+  .site-header .main-menu.is-active .menu-action .item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f7b32b 0%, #ff7a18 100%);
+    box-shadow: 0 6px 16px rgb(247 179 43 / 0.32);
+    transition: transform 0.25s ease;
+  }
+
+  .site-header .main-menu.is-active .menu-action .item:active {
+    transform: scale(0.92);
+  }
+
+  .site-header .main-menu.is-active .menu-action .item i {
+    font-size: 19px;
+  }
+
+  /* Back is hidden at the top level, and space-between would then pull
+     the close button to the left */
+  .site-header .main-menu.is-active .menu-action .menu-close {
+    margin-left: auto;
+  }
+
+  /* ---- Items --------------------------------------------------- */
+  /* Smaller than the full-screen menu's 26px, which wrapped badly once
+     the panel came down to 360px */
+  .site-header .main-menu.is-active > ul > li > a {
+    position: relative;
+    font-size: 21px;
+    line-height: 1.3;
+    padding: 14px 20px;
+    border-bottom: 0;
+  }
+
+  /* Inset hairline between items */
+  .site-header .main-menu.is-active > ul > li:not(:last-child) > a::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    height: 1px;
+    background-color: #f1f1f3;
+  }
+
+  /* Gradient bar + wash on the active item */
+  .site-header .main-menu.is-active li.current-menu-item > a {
+    background-color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      rgb(247 179 43 / 0.16) 0%,
+      transparent 72%
+    );
+  }
+
+  .site-header
+    .main-menu.is-active
+    > ul
+    > li.current-menu-item
+    > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 26px;
+    border-radius: 0 4px 4px 0;
+    background: linear-gradient(180deg, #f7b32b 0%, #7527eb 100%);
+  }
+
+  /* ---- Submenu ------------------------------------------------- */
+
+  /* Short of the full width so the drawer's edge rail stays unbroken
+     when the submenu slides over it */
+  .site-header .main-menu.is-active .sub-menu {
+    width: calc(100% - 2px);
+    background-image: radial-gradient(
+      circle at 100% 0%,
+      rgb(247 179 43 / 0.12) 0%,
+      transparent 48%
+    );
+  }
+
+  .site-header .main-menu.is-active .sub-menu li a {
+    position: relative;
+    font-size: 15px;
+    padding: 12px 20px 12px 38px;
+    border-bottom: 0;
+  }
+
+  /* Gradient dot as the bullet */
+  .site-header .main-menu.is-active .sub-menu li a::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f7b32b 0%, #7527eb 100%);
+    opacity: 0.45;
+    transition: opacity 0.25s ease;
+  }
+
+  .site-header .main-menu.is-active .sub-menu li.current-menu-item a::before {
+    opacity: 1;
+  }
+}
+
+/* ---- Menu backdrop -------------------------------------------- */
+/* Covers the page beside the drawer. Tapping it closes the menu; the
+   handler lives in SiteHeader. Kept in the DOM rather than mounted on
+   open so it can fade with the drawer. */
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgb(117 39 235 / 0.28) 0%,
+      transparent 58%
+    ),
+    rgb(17 17 17 / 0.5);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.menu-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* The drawer only exists below the theme's menu breakpoint */
+@media (min-width: 992px) {
+  .menu-backdrop {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-backdrop {
+    transition: none;
+  }
+}
+
 /* ---- Submenu colour scheme ------------------------------------ */
 
 /* The homepage header carries sala-dark-scheme, which flips the theme's

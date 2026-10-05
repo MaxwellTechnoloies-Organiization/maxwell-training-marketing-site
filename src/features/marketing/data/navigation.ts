@@ -62,7 +62,7 @@ export const primaryNav: NavItem[] = [
       { label: 'Content Strategy', href: '/content-strategy' },
       { label: 'Channels & Visibility', href: '/channels-and-visibility' },
       { label: 'SEO & acquisition', href: '/seo-and-acquisition' },
-      { label: 'AI & Productivity', href: '/ai-and-Productivity' },
+      { label: 'AI & Productivity', href: '/ai-and-productivity' },
       { label: 'Performance & Analytics', href: '/performance-and-analytics' },
     ],
   },

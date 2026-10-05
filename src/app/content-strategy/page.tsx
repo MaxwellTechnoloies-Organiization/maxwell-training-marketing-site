@@ -146,7 +146,13 @@ export default function ContentStrategyPage() {
             </div>
           </section>
 
-          <CourseTimeline dateLine={['5th July', '6th July', '7th July']} modules={modules} />
+          <CourseTimeline dateLine={['5th July', '6th July', '7th July']} modules={modules}>
+            <div className="button-wrap mt32">
+              <Link href="/contact" className="button fullfield" title="More Details">
+                More Details
+              </Link>
+            </div>
+          </CourseTimeline>
         </div>
       </main>
     </>

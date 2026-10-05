@@ -7,7 +7,7 @@ import { CourseTimeline, type TimelineModule } from '@/features/courses/componen
 export const metadata: Metadata = {
   title: 'Mobile Frontend Development',
   description:
-    'Mobile app development training in Douala. Build cross-platform Android and iOS apps with Dart and Flutter, then work on real client projects.',
+    'Mobile app development training in Douala. Build cross-platform Android and iOS apps with Flutter, React Native and Ionic Angular, then work on real client projects.',
 };
 
 const modules: TimelineModule[] = [
@@ -26,6 +26,20 @@ const modules: TimelineModule[] = [
     practicalTools: 'Flutter',
     desc: 'Flutter is Google’s open-source UI toolkit for building apps for Android, iOS, the web, Windows, macOS and Linux from a single codebase. Unlike Dart, Flutter is not a programming language but a software development kit written in Dart. You will build interfaces with widgets, manage state, handle navigation and connect your apps to backend APIs.',
   },
+  {
+    icon: ['/assets/images/tools/react.png', '/assets/images/tools/cross-platform.png'],
+    time: '120 Hours of Practicals',
+    title: 'React Native',
+    practicalTools: 'React Native',
+    desc: 'React Native builds Android and iOS apps with JavaScript and React, rendering to genuinely native components rather than a web view. You will work through the core components, navigation, state management and the device APIs for the camera, storage and notifications, then ship to both stores from one codebase. Existing JavaScript knowledge helps, though everything you need is covered as you go.',
+  },
+  {
+    icon: ['/assets/images/tools/angular.png', '/assets/images/tools/cross-platform.png'],
+    time: '120 Hours of Practicals',
+    title: 'Ionic Angular',
+    practicalTools: 'Ionic, Angular',
+    desc: 'Ionic pairs Angular with a library of mobile-ready interface components to produce apps that run on Android, iOS and the web from the same project. You will cover Angular components, services and routing alongside Ionic’s navigation and layout patterns, then use Capacitor to reach native device features. It is the quickest route to a store-ready app if you already think in web technologies.',
+  },
 ];
 
 export default function MobileFrontendDevelopmentPage() {
@@ -43,8 +57,8 @@ export default function MobileFrontendDevelopmentPage() {
                     <div className="heading-sub layout-02">Software Engineering</div>
                     <h1 className="heading-title size-xl">Mobile Frontend Development</h1>
                     <div className="heading-desc">
-                      Build beautiful, high-performance apps for Android and iOS from a single
-                      Flutter codebase
+                      Build beautiful, high-performance apps for Android and iOS from a
+                      single codebase with Flutter, React Native and Ionic
                     </div>
                   </div>
                   <div className="button-wrap">

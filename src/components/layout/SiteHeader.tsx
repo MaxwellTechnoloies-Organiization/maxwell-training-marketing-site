@@ -2,9 +2,13 @@
  * Site header: logo, hamburger, and the primary navigation.
  *
  * One menu serves both breakpoints — above 992px it's an inline bar, below
- * it becomes a full-screen panel. The theme CSS handles that transition;
- * this component only manages open state and submenu depth, translating
- * the root list by -100% per level.
+ * it becomes a drawer sliding in from the left over a backdrop. The theme
+ * CSS plus overrides.css handle that transition; this component only
+ * manages open state and submenu depth, translating the root list by
+ * -100% per level.
+ *
+ * The drawer closes three ways: the X button, a tap on the backdrop, and
+ * Escape. All three go through closeMenu so the submenu depth resets too.
  *
  * `isHome` switches to the dark scheme and PNG logo for the homepage,
  * where the header sits over a dark hero image.
@@ -18,7 +22,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useStickyHeader } from "@/hooks/useStickyHeader";
 import { primaryNav } from "@/features/marketing/data/navigation";
@@ -49,6 +53,13 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
   const logo = isHome ? "Maxwell_Training_Logo.png" : "maxwell-training.svg";
   const depth = openIndex === null ? 0 : 1;
 
+  // Also clears the open submenu, so reopening the drawer starts at the
+  // top level rather than wherever it was left.
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false);
+    setOpenIndex(null);
+  }, []);
+
   useEffect(() => {
     if (!isMenuOpen) return;
 
@@ -59,6 +70,18 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
       document.body.style.overflow = previous;
     };
   }, [isMenuOpen]);
+
+  // The backdrop is not focusable, so Escape is the keyboard route out.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isMenuOpen, closeMenu]);
 
   return (
     <header
@@ -71,6 +94,12 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
         .filter(Boolean)
         .join(" ")}
     >
+      <div
+        className={`menu-backdrop${isMenuOpen ? " is-active" : ""}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
       <div className="container-fluid">
         <div className="row flex-align-c inner">
           <div className="col-lg-3 col-6">
@@ -126,7 +155,7 @@ export function SiteHeader({ isHome = false }: SiteHeaderProps) {
                     type="button"
                     className="item menu-close"
                     aria-label="Close menu"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={closeMenu}
                   >
                     <i className="las la-times" aria-hidden="true" />
                   </button>
