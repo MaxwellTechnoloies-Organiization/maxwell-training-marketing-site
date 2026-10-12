@@ -31,8 +31,8 @@ export default function ContactPage() {
             <div className="inner align-center">
               <h1 className="title">Enrol or Contact Us</h1>
               <div className="desc">
-                Would you like to get in touch or enrol immediately? Kindly
-                enter your details and we&rsquo;d be right with you.
+                Would you like to get in touch or enrol immediately? Kindly enter your details and
+                we&rsquo;d be right with you.
               </div>
             </div>
           </div>
@@ -46,8 +46,7 @@ export default function ContactPage() {
                   <div className="heading">
                     <h2 className="heading-title">By Call or Email.</h2>
                     <div className="heading-desc">
-                      Reach out by calling or emailing us. Click on one of the
-                      buttons below:
+                      Reach out by calling or emailing us. Click on one of the buttons below:
                     </div>
                   </div>
 
@@ -55,11 +54,7 @@ export default function ContactPage() {
                     <div className="row">
                       <div className="col-md-6">
                         <div className="contact-box">
-                          <a
-                            href="tel:+237672149730"
-                            title="Call us"
-                            className="background-navy"
-                          >
+                          <a href="tel:+237672149730" title="Call us" className="background-navy">
                             Call us<span>+237 672 149 730</span>
                           </a>
                         </div>
@@ -67,12 +62,12 @@ export default function ContactPage() {
                       <div className="col-md-6">
                         <div className="contact-box">
                           <a
-                            href="mailto:contact@maxwelltraining.net"
+                            href="mailto:training@maxwelltechnologiesplc.com"
                             title="Email us"
                             className="background-dark"
                           >
                             Email us
-                            <span>contact@maxwelltechnologiesplc.com</span>
+                            <span>training@maxwelltechnologiesplc.com</span>
                           </a>
                         </div>
                       </div>

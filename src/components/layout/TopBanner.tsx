@@ -5,31 +5,30 @@
  * @author Awa Precious
  */
 
-
-const PHONE_DISPLAY = "+237 672 149 730";
-const PHONE_HREF = "tel:+237672149730";
-const EMAIL = "contact@maxwelltraining.cm";
+const PHONE_DISPLAY = '+237 672 149 730';
+const PHONE_HREF = 'tel:+237672149730';
+const EMAIL = 'training@maxwelltechnologiesplc.com';
 
 const SOCIALS = [
   {
-    label: "WhatsApp",
-    href: "https://wa.me/237655421621",
-    icon: "lab la-whatsapp",
+    label: 'WhatsApp',
+    href: 'https://wa.me/237672149730',
+    icon: 'lab la-whatsapp',
   },
   {
-    label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=100094109372893&mibextid=D4KYlr",
-    icon: "lab la-facebook-f",
+    label: 'Facebook',
+    href: 'https://www.facebook.com/profile.php?id=100094109372893&mibextid=D4KYlr',
+    icon: 'lab la-facebook-f',
   },
   {
-    label: "Instagram",
-    href: "https://instagram.com/maxwell.training?igshid=NzZlODBkYWE4Ng==/",
-    icon: "lab la-instagram",
+    label: 'Instagram',
+    href: 'https://instagram.com/maxwell.training?igshid=NzZlODBkYWE4Ng==/',
+    icon: 'lab la-instagram',
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/maxwell-training/",
-    icon: "lab la-linkedin-in",
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/maxwell-training/',
+    icon: 'lab la-linkedin-in',
   },
 ];
 
@@ -43,10 +42,7 @@ export function TopBanner() {
               <i className="las la-phone-alt" aria-hidden="true" />
               <span>{PHONE_DISPLAY}</span>
             </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="top-banner__link top-banner__link--email"
-            >
+            <a href={`mailto:${EMAIL}`} className="top-banner__link top-banner__link--email">
               <i className="las la-envelope" aria-hidden="true" />
               <span>{EMAIL}</span>
             </a>
