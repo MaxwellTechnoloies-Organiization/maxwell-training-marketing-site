@@ -153,11 +153,11 @@ export default function HomePage() {
             <div className="container">
               <div className="heading align-center">
                 <div className="heading-sub color-navy">TRAININGS &amp; CERTIFICATIONS</div>
-                <h2 className="heading-title size-l">WE TRAIN IN 3 DIFFERENT DOMAINS</h2>
+                <h2 className="heading-title size-l">WE TRAIN IN 4 DIFFERENT DOMAINS</h2>
               </div>
               <div className="block-icon-box align-center">
                 <div className="row flex-align-c">
-                  <div className="col-lg-4">
+                  <div className="col-md-6 col-lg-3">
                     <div className="icon-box">
                       <div className="inner">
                         <div className="number">01.</div>
@@ -180,7 +180,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4">
+                  <div className="col-md-6 col-lg-3">
                     <div className="icon-box">
                       <div className="inner">
                         <div className="number">02.</div>
@@ -203,7 +203,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4">
+                  <div className="col-md-6 col-lg-3">
                     <div className="icon-box">
                       <div className="inner">
                         <div className="number">03.</div>
@@ -216,6 +216,29 @@ export default function HomePage() {
                         <div className="button-wrap mt32">
                           <Link
                             href="/fundamentals-and-strategy"
+                            className="button fullfield xs-mb10"
+                            title="Try it free"
+                          >
+                            View Course
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6 col-lg-3">
+                    <div className="icon-box">
+                      <div className="inner">
+                        <div className="number">04.</div>
+                        <div className="content">
+                          <h3 className="title">Data Analysis &amp; Automation</h3>
+                          <div className="desc">
+                            Turn everyday business data into better decisions and automate the
+                            work behind it
+                          </div>
+                        </div>
+                        <div className="button-wrap mt32">
+                          <Link
+                            href="/data-cleaning-and-analysis"
                             className="button fullfield xs-mb10"
                             title="Try it free"
                           >

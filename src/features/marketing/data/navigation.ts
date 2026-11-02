@@ -66,5 +66,15 @@ export const primaryNav: NavItem[] = [
       { label: 'Performance & Analytics', href: '/performance-and-analytics' },
     ],
   },
+  {
+    label: 'Data Analysis & Automation',
+    href: '#',
+    children: [
+      { label: 'Data Cleaning & Analysis', href: '/data-cleaning-and-analysis' },
+      { label: 'Reports & Dashboards', href: '/reports-and-dashboards' },
+      { label: 'Business Data Insights', href: '/business-data-insights' },
+      { label: 'Workflow Automation', href: '/workflow-automation' },
+    ],
+  },
   { label: 'Contact', href: '/contact' },
 ];

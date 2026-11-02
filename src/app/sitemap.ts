@@ -45,6 +45,12 @@ const PAGES: PageEntry[] = [
   { path: '/seo-and-acquisition', priority: 0.9 },
   { path: '/ai-and-productivity', priority: 0.9 },
   { path: '/performance-and-analytics', priority: 0.9 },
+
+  // Data analysis & automation
+  { path: '/data-cleaning-and-analysis', priority: 0.9 },
+  { path: '/reports-and-dashboards', priority: 0.9 },
+  { path: '/business-data-insights', priority: 0.9 },
+  { path: '/workflow-automation', priority: 0.9 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
