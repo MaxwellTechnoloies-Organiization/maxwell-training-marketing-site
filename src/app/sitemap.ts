@@ -46,11 +46,13 @@ const PAGES: PageEntry[] = [
   { path: '/ai-and-productivity', priority: 0.9 },
   { path: '/performance-and-analytics', priority: 0.9 },
 
-  // Data analysis & automation
-  { path: '/data-cleaning-and-analysis', priority: 0.9 },
-  { path: '/reports-and-dashboards', priority: 0.9 },
-  { path: '/business-data-insights', priority: 0.9 },
-  { path: '/workflow-automation', priority: 0.9 },
+  // Data analytics
+  { path: '/data-analysis-foundations', priority: 0.9 },
+  { path: '/statistics-for-data-analysis', priority: 0.8 },
+  { path: '/excel-and-sql', priority: 0.8 },
+  { path: '/power-bi', priority: 0.8 },
+  { path: '/python', priority: 0.8 },
+  { path: '/tableau', priority: 0.8 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

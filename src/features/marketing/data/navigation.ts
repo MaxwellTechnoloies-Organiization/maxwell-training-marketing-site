@@ -67,13 +67,18 @@ export const primaryNav: NavItem[] = [
     ],
   },
   {
-    label: 'Data Analysis & Automation',
+    label: 'Data Analytics',
     href: '#',
     children: [
-      { label: 'Data Cleaning & Analysis', href: '/data-cleaning-and-analysis' },
-      { label: 'Reports & Dashboards', href: '/reports-and-dashboards' },
-      { label: 'Business Data Insights', href: '/business-data-insights' },
-      { label: 'Workflow Automation', href: '/workflow-automation' },
+      { label: 'Data Analysis Foundations', href: '/data-analysis-foundations' },
+      {
+        label: 'Statistics for Data Analysis',
+        href: '/statistics-for-data-analysis',
+      },
+      { label: 'Excel & SQL', href: '/excel-and-sql' },
+      { label: 'Power BI', href: '/power-bi' },
+      { label: 'Python', href: '/python' },
+      { label: 'Tableau', href: '/tableau' },
     ],
   },
   { label: 'Contact', href: '/contact' },

@@ -1,15 +1,9 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
+import type { TimelineModule } from '@/types/course';
 
-export interface TimelineModule {
-  icon: string[];
-  time: string;
-  title: string;
-  practicalTools: string;
-  desc: string;
-  initiallyActive?: boolean;
-}
+export type { TimelineModule };
 
 export interface CourseTimelineProps {
   dateLine: string[];

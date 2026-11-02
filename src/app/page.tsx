@@ -230,15 +230,15 @@ export default function HomePage() {
                       <div className="inner">
                         <div className="number">04.</div>
                         <div className="content">
-                          <h3 className="title">Data Analysis &amp; Automation</h3>
+                          <h3 className="title">Data Analytics</h3>
                           <div className="desc">
-                            Turn everyday business data into better decisions and automate the
-                            work behind it
+                            Turn data into insights and prepare for junior analyst work,
+                            starting as a beginner
                           </div>
                         </div>
                         <div className="button-wrap mt32">
                           <Link
-                            href="/data-cleaning-and-analysis"
+                            href="/data-analysis-foundations"
                             className="button fullfield xs-mb10"
                             title="Try it free"
                           >
