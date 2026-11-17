@@ -1,24 +1,15 @@
-/**
- * Contact page. Phone and email cards, an embedded map of the Bonanjo
- * office, and the enquiry form.
- *
- * We'll use emailJs to submit to email to the office inbox.
- *
- * @author Awa Precious
- */
-
-import type { Metadata } from "next";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { ContactForm } from "@/features/contact/components/ContactForm";
+import type { Metadata } from 'next';
+import { SiteHeader } from '@/components/layout/SiteHeader';
+import { ContactForm } from '@/features/contact/components/ContactForm';
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: 'Contact Us',
   description:
-    "Enrol or get in touch with Maxwell Training. Call +237 672 149 730 or visit us at Air France Building, Bonanjo, Douala.",
+    'Enrol or get in touch with Maxwell Training. Call +237 672 149 730 or visit us at Air France Building, Bonanjo, Douala.',
 };
 
 const MAP_EMBED =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.896874255702!2d9.686191375671685!3d4.041462895932301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061136efc222e99%3A0x244fbba1dd5b43d4!2sMaxwell%20Technologies!5e0!3m2!1sen!2scm!4v1694522687971!5m2!1sen!2scm";
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.896874255702!2d9.686191375671685!3d4.041462895932301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061136efc222e99%3A0x244fbba1dd5b43d4!2sMaxwell%20Technologies!5e0!3m2!1sen!2scm!4v1694522687971!5m2!1sen!2scm';
 
 export default function ContactPage() {
   return (
