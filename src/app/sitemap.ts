@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 const BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://maxwelltraining.cm').replace(/\/$/, '');
 
-const LAST_CONTENT_UPDATE = new Date('2026-10-05');
+const LAST_CONTENT_UPDATE = new Date('2026-11-17');
 
 type SitemapEntry = MetadataRoute.Sitemap[number];
 
